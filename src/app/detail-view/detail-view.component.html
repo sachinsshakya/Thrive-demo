@@ -1,0 +1,137 @@
+<div class="ml-1">
+    <mat-stepper orientation="vertical">
+        <mat-step [stepControl]="firstFormGroup">
+            <br>
+            <div class="mat-elevation-z6 card">
+                <mat-card>
+                    <mat-card-content>
+                        <form [formGroup]="firstFormGroup">
+                            <ng-template matStepLabel>Decision Context</ng-template>
+                            <h2>What is the justification for this time Horizon?</h2>
+                            <mat-form-field appearance="outline" style="width: 90%;">
+                                        <textarea matInput placeholder="justification" rows="6" formControlName="firstCtrl" required></textarea>
+                                    </mat-form-field>
+                            
+                            <div>
+                                <button mat-raised-button matStepperNext color="primary">Next</button>
+                            </div>
+                        </form>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup">
+            <br>
+            <div class="mat-elevation-z6 card">
+                <mat-card>
+                    <mat-card-content>
+                        <form [formGroup]="secondFormGroup">
+                            <ng-template matStepLabel>End Points and Values Tree</ng-template>
+                            
+                            <h2>Key Benifits</h2>
+                            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                            
+                                <!-- Name Column -->
+                                <ng-container matColumnDef="name">
+                                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                                </ng-container>
+                            
+                                <!-- Weight Column -->
+                                <ng-container matColumnDef="description">
+                                    <th mat-header-cell *matHeaderCellDef> Description </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+                                </ng-container>
+                            
+                                <!-- Symbol Column -->
+                                <ng-container matColumnDef="at">
+                                    <th mat-header-cell *matHeaderCellDef> Created At </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.at}} </td>
+                                </ng-container>
+                            
+                                <!-- Symbol Column -->
+                                <ng-container matColumnDef="by">
+                                    <th mat-header-cell *matHeaderCellDef> Created By </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.by}} </td>
+                                </ng-container>
+                            
+                                <!-- Symbol Column -->
+                                <ng-container matColumnDef="action">
+                                    <th mat-header-cell *matHeaderCellDef> Action </th>
+                                    <td mat-cell *matCellDef="let element">
+                                        <button mat-icon-button>
+                                            <mat-icon>delete    </mat-icon>
+                                        </button>
+                                    </td>
+                                </ng-container>
+                            
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                            </table>
+                            <br>
+                            <br>
+                            <h2>Key Risk</h2>
+                            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                            
+                                <!-- Name Column -->
+                                <ng-container matColumnDef="name">
+                                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                                </ng-container>
+                            
+                                <!-- Weight Column -->
+                                <ng-container matColumnDef="description">
+                                    <th mat-header-cell *matHeaderCellDef> Description </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+                                </ng-container>
+                            
+                                <!-- Symbol Column -->
+                                <ng-container matColumnDef="at">
+                                    <th mat-header-cell *matHeaderCellDef> Created At </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.at}} </td>
+                                </ng-container>
+                            
+                                <!-- Symbol Column -->
+                                <ng-container matColumnDef="by">
+                                    <th mat-header-cell *matHeaderCellDef> Created By </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.by}} </td>
+                                </ng-container>
+                            
+                                <!-- Symbol Column -->
+                                <ng-container matColumnDef="action">
+                                    <th mat-header-cell *matHeaderCellDef> Action </th>
+                                    <td mat-cell *matCellDef="let element">
+                                        <button mat-icon-button>
+                                            <mat-icon>delete </mat-icon>
+                                        </button>
+                                    </td>
+                                </ng-container>
+                            
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                            </table>
+                            <br>
+                            <div>
+                                <button mat-raised-button matStepperPrevious color="warn">Back</button>
+                                <button mat-raised-button matStepperNext color="primary"style="margin-left: 10px">Next</button>
+                            </div>
+                        </form>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Data Source and Statistical Methods</ng-template>
+            <div>
+                <br>
+                <p>Some Content Goes here...</p>
+                <br>
+            </div>
+            <div>
+                <button mat-raised-button matStepperPrevious color="warn">Back</button>
+                <button mat-raised-button matStepperNext color="primary" style="margin-left: 10px">Submit</button>
+
+            </div>
+        </mat-step>
+    </mat-stepper>
+</div>
